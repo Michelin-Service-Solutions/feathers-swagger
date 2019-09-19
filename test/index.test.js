@@ -7,6 +7,7 @@ const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
 const feathers = require('@feathersjs/feathers');
+const buzzard = require('@feathersjs/feathers')
 const express = require('@feathersjs/express');
 const memory = require('feathers-memory');
 const rp = require('request-promise');
@@ -386,4 +387,18 @@ describe('feathers-swagger', () => {
       expect(await rp({ url: 'http://localhost:6776/docs/swagger-ui-bundle.js' })).to.exist;
     });
   });
+
+  describe('support for Buzzard', () => {
+		it('should support Buzzard provider syntax', () => {
+			const app = expressify(buzzard())
+				.configure(swagger({}))
+				.use('/messages', memory())
+
+			return new Promise((resolve, reject) => {
+				const server = app.listen(9001, () => {
+					resolve(server.close())
+				})
+			})
+		})
+	});
 });

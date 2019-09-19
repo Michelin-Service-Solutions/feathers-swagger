@@ -3,12 +3,14 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs-ecosystem/feathers-swagger.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-swagger.png?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-swagger)
+[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-swagger/badges/gpa.svg)](https://codeclimate.com/github/feathersjs/feathers-swagger)
+[![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-swagger/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-swagger/coverage)
 [![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-swagger.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-swagger)
 [![Download Status](https://img.shields.io/npm/dm/feathers-swagger.svg?style=flat-square)](https://www.npmjs.com/package/feathers-swagger)
 
 > Add documentation to your Featherjs services and show them in the Swagger UI.
 
-This version is configured to work with Swagger UI 3.x
+This version is configured to work with Swagger 2.0
 
 ## Installation
 
@@ -167,7 +169,8 @@ const swagger = require('feathers-swagger');
 
 const messageService = memory();
 
-// swagger spec for this service, see http://swagger.io/specification/
+// Swagger spec for this service, see:
+// https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md
 messageService.docs = {
   description: 'A service to send and receive messages',
   definitions: {
